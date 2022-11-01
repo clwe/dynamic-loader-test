@@ -35,7 +35,7 @@ The dynamic loader, does not know, that the symbols are in `libmyplugin.so` it w
 
 There are at least two ways to resolve the issue: 
 
-## 1. Change the lookup scope of the dynamic linker at runtime: 
+## 1. Change the lookup scope of the dynamic linker at runtime
 To change the lookup scope we can use the parameter `RTLD_GLOBAL` in the dlopen call in `main.c`. I.e. change 
 the line 
 ``` shell
