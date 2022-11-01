@@ -7,7 +7,7 @@ In this test case, a plugin library uses symbols of another plugin library which
 
 Here `libmyexternal.so` needs to resolve a symbol that is defined in `libmyplugin.so`.
 
-Without special considerations this would fail. Because the symbols of `libmyplugin.so` would not be exported to the dynamic symbol table, since they are not known to be used anywhere. The compiler cannot anticpate that we are loading `libmyexternal.so` at runtime, that needs them. But even if we force the export of the dynamic symbols of `libmyplugin` by using the linker flag [https://sourceware.org/binutils/docs/ld/Options.html#index-_002dE](`-Wl,-export-dynamics`), the dynamic linker would still fail to resolve the symbols in `libmyexternal.so`. 
+Without special considerations this would fail. Because the symbols of `libmyplugin.so` would not be exported to the dynamic symbol table, since they are not known to be used anywhere. The compiler cannot anticpate that we are loading `libmyexternal.so` at runtime, that needs them. But even if we force the export of the dynamic symbols of `libmyplugin` by using the linker flag [`-Wl,-export-dynamics`](https://sourceware.org/binutils/docs/ld/Options.html#index-_002dE), the dynamic linker would still fail to resolve the symbols in `libmyexternal.so`. 
 
 To see why, build and run the example as follows:
 ```shell
